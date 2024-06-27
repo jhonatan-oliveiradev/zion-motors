@@ -1,0 +1,71 @@
+.footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 5.25rem 0 0.875rem 0;
+    .section {
+        width: 90%;
+        background-color: #000000;
+        padding: 2rem 1rem;
+        z-index: 20;
+        transition: all 0.3s ease-in-out;
+        &:hover {
+            box-shadow: 1px 1px 8px 0px rgba(18, 18, 18, 0.5);
+        }
+        @media (min-width: 768px) {
+            width: 70%;
+        }
+        .title {
+            text-align: center;
+            color: #FFFFFF;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        .content {
+            color: #FFFFFF;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0.875rem;
+            align-items: center;
+            justify-content: center;
+            @media (min-width: 640px) {
+                grid-template-columns: 1fr 1fr;
+            }
+            .item {
+                display: flex;
+                gap: 0.875rem;
+                align-items: center;
+                p {
+                    font-size: 0.875rem;
+                }
+            }
+        }
+    }
+    .link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.875rem;
+        color: #ffffff;
+        background-color: #000000;
+        padding: 1rem 1.375rem;
+        border-radius: 4px;
+        margin: 1.5rem 0;
+        font-weight: medium;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+        @media (max-width: 420px) {
+            span {
+                display: none;
+            }
+        }
+        &:hover {
+            background-color: #333;
+        }
+    }
+    .copy {
+        font-size: 0.875rem;
+        color: #121212;
+    }
+}

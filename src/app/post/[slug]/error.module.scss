@@ -1,0 +1,29 @@
+.content {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: calc(100vh - 100px);
+
+	p {
+		font-size: 0.875rem;
+		margin: 1rem 0;
+	}
+
+	a {
+		display: flex;
+		align-items: center;
+		gap: 5px;
+
+		background-color: #121212;
+		color: #ffffff;
+		padding: 10px 20px;
+		border-radius: 4px;
+		transition: all 0.3s ease-in-out;
+
+		&:hover {
+			background-color: #333333;
+		}
+	}
+}
