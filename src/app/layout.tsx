@@ -11,7 +11,22 @@ const sans = Open_Sans({
 
 export const metadata: Metadata = {
 	title: "Zion Motors - Sua oficina especializada!",
-	description: "Oficina de carros especializada em veículos elétricos."
+	description: "Oficina de carros especializada em veículos elétricos.",
+	keywords: ["oficina", "mecânica", "carros", "manutenção de carros"],
+	openGraph: {
+		title: "Zion Motors - Sua oficina especializada!",
+		images: [`${process.env.NEXT_PUBLIC_URL}/logo.jpg`]
+	},
+	robots: {
+		index: true,
+		follow: true,
+		nocache: true,
+		googleBot: {
+			index: true,
+			follow: true,
+			noimageindex: true
+		}
+	}
 };
 
 export default function RootLayout({

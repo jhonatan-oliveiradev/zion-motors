@@ -8,6 +8,62 @@ import { PhoneIcon } from "lucide-react";
 import styles from "./styles.module.scss";
 import Link from "next/link";
 import Image from "next/image";
+import { Metadata } from "next";
+
+export async function generateMetadata({
+	params: { slug }
+}: {
+	params: { slug: string };
+}): Promise<Metadata> {
+	try {
+		const { objects }: PostModel = await getItemBySlug(slug).catch(() => {
+			return {
+				title: "Zion Motors - Sua oficina especializada!",
+				description: "Oficina de carros especializada em veículos elétricos."
+			};
+		});
+
+		return {
+			title: `${objects[0].title} - Zion Motors`,
+			description: objects[0].metadata.description.text,
+			keywords: ["oficina", "mecânica", "carros", "manutenção de carros"],
+			openGraph: {
+				title: `${objects[0].title} - Zion Motors`,
+				images: [objects[0].metadata.banner.url]
+			},
+			robots: {
+				index: true,
+				follow: true,
+				nocache: true,
+				googleBot: {
+					index: true,
+					follow: true,
+					noimageindex: true
+				}
+			}
+		};
+	} catch (err) {
+		return {
+			title: "Zion Motors - Sua oficina especializada!",
+			description: "Oficina de carros especializada em veículos elétricos.",
+			keywords: ["oficina", "mecânica", "carros", "manutenção de carros"],
+			openGraph: {
+				title: "Zion Motors - Sua oficina especializada!",
+				images: [`${process.env.NEXT_PUBLIC_URL}/logo.jpg`]
+			},
+			robots: {
+				index: true,
+				follow: true,
+				nocache: true,
+				googleBot: {
+					index: true,
+					follow: true,
+					noimageindex: true
+				}
+			}
+		};
+	}
+}
 
 export default async function Page({
 	params: { slug }
